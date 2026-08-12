@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query, Body
 from sqlalchemy.orm import Session
-from typing import List, Optional
+from typing import List, Optional, Any
 
 from app.database import get_db
 from app.models.models import College, Course, StudentProfile, SavedCollege, User
