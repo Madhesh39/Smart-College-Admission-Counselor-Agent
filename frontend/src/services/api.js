@@ -6,6 +6,10 @@ const getBaseURL = () => {
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
       url = `https://${url}`;
     }
+    // Auto-fix internal Render service name if missing domain extension
+    if (!url.includes('.onrender.com') && !url.includes('localhost') && !url.includes('127.0.0.1') && !url.includes('.com') && !url.includes('.org') && !url.includes('.net') && !url.includes('.io') && !url.includes('.dev')) {
+      url = `${url}.onrender.com`;
+    }
     return url.endsWith('/api') ? url : `${url}/api`;
   }
   return '/api';
