@@ -1,8 +1,15 @@
 import axios from 'axios';
 
-// Base URL is empty so it uses the Vite dev server proxy configurations
+const getBaseURL = () => {
+  if (import.meta.env.VITE_API_URL) {
+    const url = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
+    return url.endsWith('/api') ? url : `${url}/api`;
+  }
+  return '/api';
+};
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: getBaseURL(),
   headers: {
     'Content-Type': 'application/json',
   },
