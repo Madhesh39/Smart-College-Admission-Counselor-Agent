@@ -20,7 +20,6 @@ services:
   - type: web
     name: smart-college-counselor-frontend
     runtime: static
-    region: singapore
     plan: free
     rootDir: frontend
     buildCommand: "npm install && npm run build"
@@ -34,4 +33,4 @@ services:
         fromService:
           type: web
           name: smart-college-counselor-backend
-          property: url
+          property: host
